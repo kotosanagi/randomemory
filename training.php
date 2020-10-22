@@ -1,18 +1,20 @@
 <?php
 
-require_once("define.php");
+// require_once("define.php");
 require_once("function.php");
 
 //db接続情報の定義
-define("DB_HOST",$define["host"]);
-define("DB_USER",$define["user"]);
-define("DB_PASS",$define["pass"]);
-define("DB_NAME",$define["name"]);
+// define("DB_HOST",$define["host"]);
+// define("DB_USER",$define["user"]);
+// define("DB_PASS",$define["pass"]);
+// define("DB_NAME",$define["name"]);
 
 session_start();
 
-if(empty($_GET['answer'])){
-  $num_train = (int)$_GET['num_train'];
+//come from index.php
+if(!empty($_GET['num_train'])){
+  $_SESSION['question_num'] = 0;
+  $_SESSION['num_train'] = (int)$_GET['num_train'];
 }
 
 //dbからデータを受け取る
@@ -30,8 +32,14 @@ if($mysqli->connect_errno){
 
   $mysqli->close();
 }
-?>
 
+//go to top page
+if(!empty($_GET['exit'])){
+  header("Location: ./");
+}
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -177,22 +185,18 @@ hr{
 <h1>randoMemory(training mode)</h1>
 
 <?php
+  //set array 
   if(empty($_SESSION['question_array'])){
-    for($i = 0; $i < $num_train; $i++){//$_GET['answer']的なのと「あってた」「間違ってた」とかが空っぽだったら。
+    for($i = 0; $i < $_SESSION['num_train']; $i++){//$_GET['answer']的なのと「あってた」「間違ってた」とかが空っぽだったら。
       $question_array[] = rand(1,count($card_array));
-      $front_back_array[] = rand(0,1);
-    }
-    for($i = 0; $i < $num_train; $i++){
-      echo "No.".(string)((int)$i+1)." : ".$front_back_array[$i]." : ".$question_array[$i]."<br>";
+      $is_front_array[] = rand(0,1);
     }
     $_SESSION['question_array'] = $question_array;
-    $_SESSION['front_back_array'] = $front_back_array;
+    $_SESSION['is_front_array'] = $is_front_array;
   }
 
 
-  // var_dump($card_array);
-  // var_dump(count($card_array));
-  count($card_array);
+  // echo count($card_array);
   echo "<br>";
   foreach($card_array as $value){
     var_dump($value);
@@ -200,14 +204,27 @@ hr{
   }
 ?>
 
-<!-- success_messageのチェック -->
+<br>
+<?php echo "_SESSION['question_array']"."<br>"; ?>
+<?php var_dump($_SESSION['question_array']) ?>
+<br>
+<br>
+<?php echo "_SESSION['is_front_array']"."<br>"; ?>
+<?php var_dump($_SESSION['is_front_array']) ?>
+<br>
+<br>
+<?php echo "_SESSION['num_train']"."<br>"; ?>
+<?php var_dump($_SESSION['num_train']) ?>
+<br>
+<br>
 
-<?php if(empty($_POST['btn_submit']) && !empty($_SESSION['success_message'])): ?>
+<!-- success_messageのチェック(掲示板の名残) -->
+<!-- <?php if(empty($_POST['btn_submit']) && !empty($_SESSION['success_message'])): ?>
   <ul class="success_message">
     <li>・<?php echo $_SESSION['success_message'];?></li>
     <?php unset($_SESSION['success_message']) ?>
   </ul>
-<?php endif ?>
+<?php endif ?> -->
 
 <!-- $error_messageのチェック -->
 <?php if(!empty($error_message)): ?>
@@ -218,18 +235,56 @@ hr{
   </ul>
 <?php endif ?>
 
-
+<!-- answer button -->
 <form class="question" method="get">
   <div class="answer">
     <input type="submit" name="answer" value="answer">
   </div>
 </form>
 
+<!-- result button -->
+<form class="question" method="get">
+  <div class="result">
+    <input type="submit" name="result_ok" value="result OK">
+    <input type="submit" name="result_ng" value="result NG">
+  </div>
+</form>
+
+<!-- exit button -->
+<form method="get">
+  <div class="exit">
+    <input type="submit" name="exit" value="exit">
+  </div>
+</form>
 
 
-<?php var_dump($_SESSION['question_array']) ?>
-<br>
-<?php var_dump($_SESSION['front_back_array']) ?>
+<?php
+  //when result button is pushed
+  if(!empty($_GET['result_ok'])){
+    insert_result($_SESSION['question_array'][$_SESSION['question_num']],1,$_SESSION['is_front_array'][$_SESSION['question_num']]);
+    $_SESSION['question_num'] += 1;
+  }else if(!empty($_GET['result_ng'])){
+    insert_result($_SESSION['question_array'][$_SESSION['question_num']],0,$_SESSION['is_front_array'][$_SESSION['question_num']]);
+    $_SESSION['question_num'] += 1;
+  }
+?>
+
+<!-- show cards -->
+<?php if($_SESSION['question_num'] < $_SESSION['num_train']): ?>
+  <?php show_train_question($card_array); ?>
+<?php endif ?>
+
+
+<!-- show results -->
+<?php if($_SESSION['question_num'] === $_SESSION['num_train']): ?>
+  finish!!!
+<?php endif ?>
+
+<? echo "<br>" ?>
+<?php var_dump($_SESSION['first_answer_date']) ?>
+<? echo "<br>" ?>
+<?php var_dump($_SESSION['final_answer_date']) ?>
+
 <section>
 <article>
 </article>

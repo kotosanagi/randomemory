@@ -58,6 +58,10 @@ if(!empty($_POST['btn_submit'])){//register押されたかどうか
   if($num_train === 0){
     $error_message[] = "please put some numbers...";
   }else{
+    $_SESSION['question_array'] = array();
+    $_SESSION['is_front_array'] = array();
+    $_SESSION['first_answer_date'] = "";
+    $_SESSION['final_answer_date'] = "";
     header("Location: ./training.php?num_train=".$num_train);
   }
 }
@@ -100,16 +104,6 @@ body{
 h1{
   font-size: 30px;
   text-align: center;
-}
-
-/***********************
-アクセスカウンタ
-************************/
-.counter{
-  text-align: center;
-  width: 200px;
-  margin: 0 auto 30px auto ;
-  font-weight: 20px;
 }
 
 /***********************
