@@ -44,8 +44,9 @@ if(!empty($_POST['btn_submit'])){//register押されたかどうか
       $sql = "INSERT INTO cards(card_front,card_back) VALUES('$clean[card_front]','$clean[card_back]')";
       $res = $mysqli->query($sql);
 
+    
       if($res) {
-        $_SESSION['success_message'] = 'success!!';
+        $_SESSION['success_message'] = 'register a card!!';
       }else{
         $error_message[] = 'fail to register...';
       }

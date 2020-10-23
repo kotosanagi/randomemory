@@ -187,7 +187,7 @@ hr{
 <?php
   //set array 
   if(empty($_SESSION['question_array'])){
-    for($i = 0; $i < $_SESSION['num_train']; $i++){//$_GET['answer']的なのと「あってた」「間違ってた」とかが空っぽだったら。
+    for($i = 0; $i < $_SESSION['num_train']; $i++){
       $question_array[] = rand(1,count($card_array));
       $is_front_array[] = rand(0,1);
     }
@@ -196,27 +196,27 @@ hr{
   }
 
 
-  // echo count($card_array);
-  echo "<br>";
-  foreach($card_array as $value){
-    var_dump($value);
-    echo "<br>";
-  }
+  
+  // echo "card_array<br>";
+  // foreach($card_array as $value){
+  //   var_dump($value);
+  //   echo "<br>";
+  // }
 ?>
 
-<br>
-<?php echo "_SESSION['question_array']"."<br>"; ?>
-<?php var_dump($_SESSION['question_array']) ?>
-<br>
-<br>
-<?php echo "_SESSION['is_front_array']"."<br>"; ?>
-<?php var_dump($_SESSION['is_front_array']) ?>
+<!-- <br>
+<?php //echo "_SESSION['question_array']"."<br>"; ?>
+<?php //var_dump($_SESSION['question_ppparray']) ?>
 <br>
 <br>
-<?php echo "_SESSION['num_train']"."<br>"; ?>
-<?php var_dump($_SESSION['num_train']) ?>
+<?php //echo "_SESSION['is_front_array']"."<br>"; ?>
+<?php //var_dump($_SESSION['is_front_array']) ?>
 <br>
 <br>
+<?php //echo "_SESSION['num_train']"."<br>"; ?>
+<?php //var_dump($_SESSION['num_train']) ?>
+<br>
+<br> -->
 
 <!-- success_messageのチェック(掲示板の名残) -->
 <!-- <?php if(empty($_POST['btn_submit']) && !empty($_SESSION['success_message'])): ?>
@@ -235,36 +235,14 @@ hr{
   </ul>
 <?php endif ?>
 
-<!-- answer button -->
-<form class="question" method="get">
-  <div class="answer">
-    <input type="submit" name="answer" value="answer">
-  </div>
-</form>
-
-<!-- result button -->
-<form class="question" method="get">
-  <div class="result">
-    <input type="submit" name="result_ok" value="result OK">
-    <input type="submit" name="result_ng" value="result NG">
-  </div>
-</form>
-
-<!-- exit button -->
-<form method="get">
-  <div class="exit">
-    <input type="submit" name="exit" value="exit">
-  </div>
-</form>
-
 
 <?php
   //when result button is pushed
   if(!empty($_GET['result_ok'])){
-    insert_result($_SESSION['question_array'][$_SESSION['question_num']],1,$_SESSION['is_front_array'][$_SESSION['question_num']]);
+    insert_result($card_array[$_SESSION['question_array'][$_SESSION['question_num']]-1]['card_id'],1,$_SESSION['is_front_array'][$_SESSION['question_num']]);
     $_SESSION['question_num'] += 1;
   }else if(!empty($_GET['result_ng'])){
-    insert_result($_SESSION['question_array'][$_SESSION['question_num']],0,$_SESSION['is_front_array'][$_SESSION['question_num']]);
+    insert_result($card_array[$_SESSION['question_array'][$_SESSION['question_num']]-1]['card_id'],0,$_SESSION['is_front_array'][$_SESSION['question_num']]);
     $_SESSION['question_num'] += 1;
   }
 ?>
@@ -275,15 +253,41 @@ hr{
 <?php endif ?>
 
 
-<!-- show results -->
-<?php if($_SESSION['question_num'] === $_SESSION['num_train']): ?>
-  finish!!!
+
+<?php if(empty($_GET['answer']) && ($_SESSION['question_num'] !== $_SESSION['num_train'])): ?>
+<!-- answer button -->
+<form class="question" method="get">
+  <div class="answer">
+    <input type="submit" name="answer" value="answer">
+  </div>
+</form>
+<?php elseif(!empty($_GET['answer'])): ?>
+<!-- result button -->
+<form class="question" method="get">
+  <div class="result">
+    <input type="submit" name="result_ok" value="result OK">
+    <input type="submit" name="result_ng" value="result NG">
+  </div>
+</form>
 <?php endif ?>
 
-<? echo "<br>" ?>
-<?php var_dump($_SESSION['first_answer_date']) ?>
-<? echo "<br>" ?>
-<?php var_dump($_SESSION['final_answer_date']) ?>
+<!-- show results -->
+<?php if($_SESSION['question_num'] === $_SESSION['num_train']): ?>
+  <?php $result_array = show_results(); ?>
+<?php endif ?>
+
+<?php // echo "<br><br>_SESSION['first_answer_date']<br>" ?>
+<?php //var_dump($_SESSION['first_answer_date']) ?>
+<?php //echo "<br>_SESSION['final_answer_date']<br>" ?>
+<?php //var_dump($_SESSION['final_answer_date']) ?>
+
+<!-- exit button -->
+<form method="get">
+  <div class="exit">
+    <input type="submit" name="exit" value="exit">
+  </div>
+</form>
+
 
 <section>
 <article>
