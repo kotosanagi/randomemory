@@ -37,8 +37,6 @@ if($mysqli->connect_errno){
 if(!empty($_GET['exit'])){
   header("Location: ./");
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -46,139 +44,7 @@ if(!empty($_GET['exit'])){
 <head>
 <meta charset="utf-8">
 <title>randoMemory(training mode)</title>
-
-<style>
-
-body{
-  background-color: #dcffeb;
-}
-
-
-h1{
-  font-size: 30px;
-  text-align: center;
-}
-
-/***********************
-アクセスカウンタ
-************************/
-.counter{
-  text-align: center;
-  width: 200px;
-  margin: 0 auto 30px auto ;
-  font-weight: 20px;
-}
-
-/***********************
-結果表示部分
-************************/
-.success_message{
-  border:solid 1px;
-  border-color: blue;
-  padding: 15px;
-  margin: 0 90px;
-  border-radius: 8px;
-  list-style-type: none;
-}
-
-.error_message{
-  border:solid 1px;
-  border-color: red;
-  padding: 15px;
-  margin: 0 90px;
-  border-radius: 8px;
-  list-style-type: none;
-}
-
-/***********************
-入力部分
-************************/
-
-form{
-  background-color: white;
-  margin: 15px 90px;
-  padding-bottom: 15px;
-}
-
-
-textarea{
-  height: 100px;
-  width: 300px;
-  border-radius: 5px;
-  margin-right: 20px;
-}
-.fill_in_the_contents{
-  margin:10px 20px;
-  padding-top: 13px;
-}
-
-.input-card_front,
-.input-card_back{
-  margin-bottom: 20px;
-}
-
-.input-card_front{
-  padding-left: 20px;
-  width:400px;
-  float:left;
-}
-
-.input-card_back{
-  padding-left: 20px;
-  width:400px
-  float:left;
-}
-
-.input-btn_submit{
-  margin: 0 15px;
-  background: #96ddff;
-  padding:8px;
-  border-radius: 10px;
-}
-
-.input-btn_submit:hover{
-  background-color: #40b4df;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
-hr{
-  margin: 30px;
-}
-/***********************
-表示部分
-************************/
-
-.cards_list{
-  text-align: center;
-  font-weight: bold;
-}
-
-.card_view{
-  background-color: #fff;
-  margin: 15px 90px;
-  padding : 2px 0px 0px 0px;
-}
-
-.card_front{
-  margin: 0 15px 5px 15px;
-  float :left;
-}
-
-.card_back{
-
-}
-
-.comment_message{
-  margin:5px 15px 0 15px;
-  padding-bottom: 5px;
-  clear:left;
-}
-
-
-
-
-</style>
+<link rel="stylesheet" href="style.css" >
 </head>
 
 <body>

@@ -1,0 +1,216 @@
+@charset "UTF-8";
+
+body{
+    background-color: #dcffeb;
+    font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
+    letter-spacing: 1.2px;
+}
+
+h1{
+    font-size: 30px;
+    font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
+    letter-spacing: 6px;
+    color: #4063A4;
+    text-align: center;
+}
+
+/***********************
+結果表示部分
+************************/
+.success_message{
+    border:solid 1px;
+    border-color: blue;
+    padding: 15px;
+    margin: 0 90px;
+    border-radius: 8px;
+    list-style-type: none;
+}
+
+.error_message{
+    border:solid 1px;
+    border-color: red;
+    padding: 15px;
+    margin: 0 90px;
+    border-radius: 8px;
+    list-style-type: none;
+}
+
+/***********************
+入力部分
+************************/
+
+form{
+    /* background-color: white; */
+    /* margin: 15px 90px; */
+    /* padding-bottom: 15px; */
+    text-align: center;
+}
+
+
+textarea{
+    height: 100px;
+    width: 300px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.fill_in_the_contents{
+    margin:10px 20px;
+    padding-top: 13px;
+    /* padding-left: 60px; */
+}
+
+
+.cards_area{
+    text-align: center;
+    /* background-color: navajowhite; */
+
+    display: flex;
+    justify-content: center;
+
+}
+
+/* .input-card_front,
+.input-card_back{
+    margin-bottom: 20px;
+} */
+
+.input-card_front{
+    /* padding-left: 20px; */
+    width:400px;
+    float:left;
+
+    /* background-color: blue; */
+}
+
+.input-card_back{
+    /* padding-left: 20px; */
+    width:400px;
+    float:left;
+
+    /* background-color: brown; */
+}
+
+
+hr{
+    margin: 30px;
+}
+/***********************
+表示部分
+************************/
+
+.cards_list{
+    text-align: center;
+    font-weight: bold;
+}
+
+.card_view{
+    background-color: #fff;
+    margin: 15px 90px;
+    padding : 2px 0px 0px 0px;
+}
+
+.card_front{
+    margin: 0 15px 5px 15px;
+    float :left;
+}
+
+.card_back{
+
+}
+
+/***********************
+go to training
+************************/
+.go_to_training{
+    text-align: center;
+}
+
+.num_train_times{
+    display: inline-block;
+    width: 120px;
+    background-color: indigo;
+}
+
+.num_train{
+    /* float: left; */
+    background-color: greenyellow;
+}
+input.num_train_text{
+    background-color: grey;
+    float: left;
+    border-radius: 5px;
+    height: 40px;
+    width: 60px;
+    border: 1px solid #aaaaaa;
+}
+
+.times{
+    background-color: hotpink;
+    margin-top: 20px;
+}
+
+/***********************
+button
+************************/
+
+.input-btn_submit{
+    margin: 30px 0px;
+    border-radius: 5px;
+    padding:20px 40px;
+    background-color: #12cc12;
+    color: #ffffff;
+    letter-spacing: 4px;
+    font-size: 20px;
+    top: 20;
+    transition: .2s all;
+
+    border: 0px;
+}
+
+.input-btn_submit:hover{
+    /* background-color: #40b4df;
+    cursor: pointer;*/
+    margin: 30px 0px;
+    border-radius: 5px;
+    /* box-shadow: 0 6px #4063A4; */
+    top: 0;
+    transition: .2s all;
+    opacity: .8;
+}
+
+.exit {
+    border-radius: 2px;
+    box-shadow: 0 6px #4063A4;
+    top: 0;
+    transition: .2s all;
+}
+.exit:hover {
+    border-radius: 2px;
+    box-shadow: 0 6px #4063A4;
+    top: 0;
+    transition: .2s all;
+    opacity: .8;
+}
+.exit:active {
+    box-shadow: 0 1px #4063A4;
+    top: 5px;
+}
+
+.clearfix::after{
+    content:"";
+    display: block;
+    clear: both;
+}
+
+
+
+
+
+.question_num{
+    color: red;
+}
+
+
+
+

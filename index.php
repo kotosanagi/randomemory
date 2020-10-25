@@ -46,7 +46,7 @@ if(!empty($_POST['btn_submit'])){//register押されたかどうか
 
     
       if($res) {
-        $_SESSION['success_message'] = 'register a card!!';
+        $_SESSION['success_message'] = 'new card is registred!!';
       }else{
         $error_message[] = 'fail to register...';
       }
@@ -85,142 +85,16 @@ if($mysqli->connect_errno){
 ?>
 
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="utf-8">
 <title>randoMemory</title>
-
-<style>
-
-body{
-  background-color: #dcffeb;
-}
-
-
-h1{
-  font-size: 30px;
-  text-align: center;
-}
-
-/***********************
-結果表示部分
-************************/
-.success_message{
-  border:solid 1px;
-  border-color: blue;
-  padding: 15px;
-  margin: 0 90px;
-  border-radius: 8px;
-  list-style-type: none;
-}
-
-.error_message{
-  border:solid 1px;
-  border-color: red;
-  padding: 15px;
-  margin: 0 90px;
-  border-radius: 8px;
-  list-style-type: none;
-}
-
-/***********************
-入力部分
-************************/
-
-form{
-  background-color: white;
-  margin: 15px 90px;
-  padding-bottom: 15px;
-}
-
-
-textarea{
-  height: 100px;
-  width: 300px;
-  border-radius: 5px;
-  margin-right: 20px;
-}
-.fill_in_the_contents{
-  margin:10px 20px;
-  padding-top: 13px;
-  padding-left: 60px;
-}
-
-.input-card_front,
-.input-card_back{
-  margin-bottom: 20px;
-}
-
-.input-card_front{
-  padding-left: 20px;
-  width:400px;
-  float:left;
-}
-
-.input-card_back{
-  padding-left: 20px;
-  width:400px
-  float:left;
-}
-
-.input-btn_submit{
-  margin: 0 15px;
-  background: #96ddff;
-  padding:8px;
-  border-radius: 10px;
-}
-
-.input-btn_submit:hover{
-  background-color: #40b4df;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
-hr{
-  margin: 30px;
-}
-/***********************
-表示部分
-************************/
-
-.cards_list{
-  text-align: center;
-  font-weight: bold;
-}
-
-.card_view{
-  background-color: #fff;
-  margin: 15px 90px;
-  padding : 2px 0px 0px 0px;
-}
-
-.card_front{
-  margin: 0 15px 5px 15px;
-  float :left;
-}
-
-.card_back{
-
-}
-
-.comment_message{
-  margin:5px 15px 0 15px;
-  padding-bottom: 5px;
-  clear:left;
-}
-
-
-
-
-</style>
+<link rel="stylesheet" href="style.css" >
 </head>
 
 <body>
+
 <h1>randoMemory</h1>
 
 
@@ -245,46 +119,48 @@ hr{
 
 <form method="post">
   <p class="fill_in_the_contents">fill in the contents what you want to memorise...</p>
-  <!-- view_name input -->
-  <div class="input-card_front">
-    <label for="card_front">front of the card</label>
-    <br>
-    <textarea id="card_front" name="card_front"></textarea>
+  
+  <div class="cards_area clearfix">
+    <!-- view_name input -->
+    <div class="input-card_front">
+      <label for="card_front">front of the card</label>
+      <br>
+      <textarea id="card_front" name="card_front"></textarea>
+    </div>
+    <!-- message_id input -->
+    <div class="input-card_back">
+      <label for="card_back">back of the card</label>
+      <br>
+      <textarea id="card_back" name="card_back"></textarea>
+    </div>
   </div>
-  <!-- message_id input -->
-  <div class="input-card_back">
-    <label for="card_back">back of the card</label>
-    <br>
-    <textarea id="card_back" name="card_back"></textarea>
-  </div>
+
+
   <!-- btn_submit input -->
   <input class="input-btn_submit" type="submit" name="btn_submit" value="register!" >
 </form>
 <hr>
 
-<!-- 暗記練習モードへ -->
+<!-- go to training -->
+<div class='go_to_training'>
+  <p>How many times do you train?</p>
 
-<form class="go_to_training" method="get">
-  <div class="num_train"><!-- 回数指定 -->
-    <label for="num_train">How many times do you train?</label>
-    <input type="text" name="num_train" value="">
-  </div>
-  <div class="go_to_training_btn">
-    <input type="submit" name="go_to_training_btn" value="go to training!">
-  </div>
-</form>
+  <form class="num_train" method="get">
+    <div class='num_train_times'>
+      <input type="text" name="num_train" value="" class="num_train_text clearfix">
+      <div class='times'>times</div>
+    </div>
+    <input class="input-btn_submit" type="submit" name="go_to_training_btn" value="go to training!">
+  </form>
+</div>
 
-
-<!-- 暗記練習モードへ ここまで -->
 <hr>
 
 <section>
 
-
 <article>
 <p class="cards_list">cards list</p>
 <?php foreach ($card_array as $value): ?>
-
   <div class="card_view">
     <div class="card_front">
       <?php echo $value['card_front']."<br>"; ?>
@@ -293,7 +169,6 @@ hr{
       <?php echo $value['card_back']; ?>
     </div>
   </div>
-
 <?php endforeach ?>
 </article>
 </section>
