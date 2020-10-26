@@ -41,10 +41,12 @@
   function show_train_question($card_array){
     echo '<div class="question_num">Q '.($_SESSION['question_num']+1)."/".$_SESSION['num_train']."<br></div>";
     if($_SESSION['is_front_array'][$_SESSION['question_num']]){ //if it is card front
-      echo $card_array[$_SESSION['question_array'][$_SESSION['question_num']]-1]['card_front']."<br>";
+      echo '<div class="question_card">'.$card_array[$_SESSION['question_array'][$_SESSION['question_num']]-1]['card_front'].'</div>';
     }else{//if it is card back
-      echo $card_array[$_SESSION['question_array'][$_SESSION['question_num']]-1]['card_back']."<br>";
+      echo '<div class="question_card">'.$card_array[$_SESSION['question_array'][$_SESSION['question_num']]-1]['card_back']."</div>";
     }
+
+    echo '<div class="question_card">???</div>';
     // var_dump($_SESSION['question_array'][$_SESSION['question_num']]);
     // echo "<br>";
     // var_dump($card_array[$_SESSION['question_array'][$_SESSION['question_num']]-1]['card_id']);

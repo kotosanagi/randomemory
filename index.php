@@ -117,7 +117,7 @@ if($mysqli->connect_errno){
 <?php endif ?>
 
 
-<form method="post">
+<form class="register_cards" method="post">
   <p class="fill_in_the_contents">fill in the contents what you want to memorise...</p>
   
   <div class="cards_area clearfix">
@@ -147,10 +147,10 @@ if($mysqli->connect_errno){
 
   <form class="num_train" method="get">
     <div class='num_train_times'>
-      <input type="text" name="num_train" value="" class="num_train_text clearfix">
+      <input type="text" name="num_train" value="" class="num_train_text">
       <div class='times'>times</div>
     </div>
-    <input class="input-btn_submit" type="submit" name="go_to_training_btn" value="go to training!">
+    <input class="go_to_training_btn" type="submit" name="go_to_training_btn" value="let's training!">
   </form>
 </div>
 
@@ -160,15 +160,20 @@ if($mysqli->connect_errno){
 
 <article>
 <p class="cards_list">cards list</p>
+<?php $card_i = 1; ?>
 <?php foreach ($card_array as $value): ?>
   <div class="card_view">
+    <div class="card_i">
+      <?php echo $card_i; ?>
+    </div>
     <div class="card_front">
-      <?php echo $value['card_front']."<br>"; ?>
+      <?php echo $value['card_front']; ?>
     </div>
     <div class="card_back">
       <?php echo $value['card_back']; ?>
     </div>
   </div>
+  <?php $card_i += 1; ?>
 <?php endforeach ?>
 </article>
 </section>

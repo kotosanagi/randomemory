@@ -85,12 +85,12 @@ if(!empty($_GET['exit'])){
 <br> -->
 
 <!-- success_messageのチェック(掲示板の名残) -->
-<!-- <?php if(empty($_POST['btn_submit']) && !empty($_SESSION['success_message'])): ?>
+<!-- <?php //if(empty($_POST['btn_submit']) && !empty($_SESSION['success_message'])): ?>
   <ul class="success_message">
-    <li>・<?php echo $_SESSION['success_message'];?></li>
-    <?php unset($_SESSION['success_message']) ?>
+    <li>・<?php //echo $_SESSION['success_message'];?></li>
+    <?php //unset($_SESSION['success_message']) ?>
   </ul>
-<?php endif ?> -->
+<?php //endif ?> -->
 
 <!-- $error_messageのチェック -->
 <?php if(!empty($error_message)): ?>

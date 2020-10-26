@@ -4,6 +4,7 @@ body{
     background-color: #dcffeb;
     font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
     letter-spacing: 1.2px;
+    color: #666;
 }
 
 h1{
@@ -15,7 +16,7 @@ h1{
 }
 
 /***********************
-結果表示部分
+success or error message
 ************************/
 .success_message{
     border:solid 1px;
@@ -36,14 +37,17 @@ h1{
 }
 
 /***********************
-入力部分
+register cards
 ************************/
 
-form{
+.register_cards{
     /* background-color: white; */
-    /* margin: 15px 90px; */
-    /* padding-bottom: 15px; */
+    margin: 10px auto 0px auto;
+    /* padding-bottom: 40px; */
     text-align: center;
+
+
+    /* background-color: lightpink; */
 }
 
 
@@ -52,12 +56,15 @@ textarea{
     width: 300px;
     border-radius: 5px;
     margin-right: 20px;
+    resize: none;
 }
 
 .fill_in_the_contents{
-    margin:10px 20px;
+    margin:10px 20px 30px 20px;
     padding-top: 13px;
     /* padding-left: 60px; */
+
+    /* background-color: khaki; */
 }
 
 
@@ -91,69 +98,6 @@ textarea{
     /* background-color: brown; */
 }
 
-
-hr{
-    margin: 30px;
-}
-/***********************
-表示部分
-************************/
-
-.cards_list{
-    text-align: center;
-    font-weight: bold;
-}
-
-.card_view{
-    background-color: #fff;
-    margin: 15px 90px;
-    padding : 2px 0px 0px 0px;
-}
-
-.card_front{
-    margin: 0 15px 5px 15px;
-    float :left;
-}
-
-.card_back{
-
-}
-
-/***********************
-go to training
-************************/
-.go_to_training{
-    text-align: center;
-}
-
-.num_train_times{
-    display: inline-block;
-    width: 120px;
-    background-color: indigo;
-}
-
-.num_train{
-    /* float: left; */
-    background-color: greenyellow;
-}
-input.num_train_text{
-    background-color: grey;
-    float: left;
-    border-radius: 5px;
-    height: 40px;
-    width: 60px;
-    border: 1px solid #aaaaaa;
-}
-
-.times{
-    background-color: hotpink;
-    margin-top: 20px;
-}
-
-/***********************
-button
-************************/
-
 .input-btn_submit{
     margin: 30px 0px;
     border-radius: 5px;
@@ -169,6 +113,87 @@ button
 }
 
 .input-btn_submit:hover{
+    background-color: #40b4df;
+    cursor: pointer;
+    margin: 30px 0px;
+    border-radius: 5px;
+    box-shadow: 0 6px #4063A4;
+    top: 0;
+    transition: .2s all;
+    opacity: .8;
+}
+
+
+/***********************
+go to training
+************************/
+.go_to_training{
+    text-align: center;
+}
+
+.num_train{
+    /* float: left; */
+    /* background-color: greenyellow; */
+    margin-bottom: 30px;
+    /* display: flex;
+    justify-content: center; */
+
+    height: 130px;
+    position: relative;
+}
+
+.num_train_times{
+    display: inline-block;
+    width: 120px;
+    /* background-color: indigo; */
+
+    position: absolute;
+    top :0px;
+    left: 51    %;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+}
+
+.num_train_text{
+    /* background-color: grey; */
+    float: left;
+    border-radius: 5px;
+    height: 40px;
+    width: 60px;
+    border: 1px solid #aaaaaa;
+}
+
+.times{
+    /* background-color: hotpink; */
+    margin-left: 5px;
+    margin-top: 20px;
+    float: left;
+}
+
+.go_to_training_btn{
+    margin: 30px 0px;
+    border-radius: 5px;
+    padding: 20px 10px;
+    background-color: #12cc12;
+    color: #ffffff;
+    letter-spacing: 4px;
+    font-size: 20px;
+    top: 20;
+    transition: .2s all;
+
+    border: 0px;
+    width: 200px;
+
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+}
+
+.go_to_training_btn:hover{
     /* background-color: #40b4df;
     cursor: pointer;*/
     margin: 30px 0px;
@@ -177,7 +202,103 @@ button
     top: 0;
     transition: .2s all;
     opacity: .8;
+
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
 }
+
+
+
+/***********************
+cards list
+************************/
+
+.cards_list{
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+    /* background-color: cornflowerblue; */
+}
+
+.card_view{
+    /* background-color: #eef; */
+    margin: 30px 90px;
+    padding : 2px 0px 0px 0px;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.card_front{
+    margin: 0 7px 5px 7px;
+    float :left;
+    height: 60px;
+    width: 180px;
+    border-radius: 5px;
+    border: 1px #f2f2f2 solid;
+    /* vertical-align: middle; */
+
+    /* background-color: mediumblue; */
+    background-color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_back{
+    margin: 0 7px 5px 7px;
+    float :left;
+    height: 60px;
+    width: 180px;
+    border-radius: 5px;
+    border: 1px #f2f2f2 solid;
+    /* vertical-align: middle; */
+
+    /* background-color: lightseagreen; */
+    background-color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.card_i{
+    /* background-color: lime; */
+    color: #777;
+
+    margin-top: 10px;
+    margin-right: 5px;
+    float: left;
+}
+
+/************************************
+*************************************
+**********  training.php  ***********
+*************************************
+*************************************/
+
+
+.question_num{
+    color: red;
+}
+
+
+
+.question_card{
+    background-color: springgreen;
+    color: blue;
+}
+
+
+
 
 .exit {
     border-radius: 2px;
@@ -192,25 +313,26 @@ button
     transition: .2s all;
     opacity: .8;
 }
-.exit:active {
-    box-shadow: 0 1px #4063A4;
-    top: 5px;
+
+
+
+
+
+
+
+/*********************
+others
+*********************/
+
+
+hr{
+    margin: 0px 30px 50px 30px;
 }
+
 
 .clearfix::after{
     content:"";
     display: block;
     clear: both;
 }
-
-
-
-
-
-.question_num{
-    color: red;
-}
-
-
-
 
