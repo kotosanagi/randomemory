@@ -149,7 +149,7 @@ go to training
 
     position: absolute;
     top :0px;
-    left: 51    %;
+    left: 51%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
@@ -240,7 +240,7 @@ cards list
     height: 60px;
     width: 180px;
     border-radius: 5px;
-    border: 1px #f2f2f2 solid;
+    border: 1px #ddd solid;
     /* vertical-align: middle; */
 
     /* background-color: mediumblue; */
@@ -257,7 +257,7 @@ cards list
     height: 60px;
     width: 180px;
     border-radius: 5px;
-    border: 1px #f2f2f2 solid;
+    border: 1px #ddd solid;
     /* vertical-align: middle; */
 
     /* background-color: lightseagreen; */
@@ -286,29 +286,215 @@ cards list
 *************************************/
 
 
+
+
+
+/************************************
+cards 
+*************************************/
 .question_num{
-    color: red;
+    /* color: red; */
+    /* background-color: steelblue; */
+    text-align: center;
+    margin-top: 30px;
 }
 
+.question_cards{
+    height: 120px;
+    /* background-color: tan; */
+    
+    display: flex;
+    justify-content: center;
 
+    margin: 10px auto 30px auto;
+}
 
 .question_card{
-    background-color: springgreen;
-    color: blue;
+    /* background-color: springgreen; */
+    background-color: white;
+    /* color: blue; */
+
+    height: 60px;
+    width: 180px;
+    border-radius: 5px;
+    border: 1px #ddd solid;
+
+    margin: 15px 15px 5px 15px;
+    float: left;
+
+    height: 80px;
+    width: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
+/************************************
+buttons
+*************************************/
 
+.ans_res_button{
+    /* background-color: teal; */
+    height: 300px;
 
+    display: flex;
+    justify-content: center;
 
-.exit {
-    border-radius: 2px;
-    box-shadow: 0 6px #4063A4;
+    position: relative;
+}
+
+.ans_btn{
+    margin: 30px 0px;
+    border-radius: 5px;
+    padding: 20px 10px;
+    background-color: #12cc12;
+    color: #ffffff;
+    letter-spacing: 4px;
+    font-size: 20px;
+    top: 20px;
+    transition: .2s all;
+    border: 0px;
+    width: 200px;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ans_btn:hover{
+    cursor: pointer;
+    margin: 30px 0px;
+    border-radius: 5px;
     top: 0;
     transition: .2s all;
+    opacity: .8;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.exit:hover {
-    border-radius: 2px;
-    box-shadow: 0 6px #4063A4;
+
+
+.res_ok_btn{
+    margin: 30px 10px;
+    border-radius: 5px;
+    padding: 20px 10px;
+    background-color: #12cc12;
+    color: #ffffff;
+    letter-spacing: 4px;
+    font-size: 16px;
+    top: 20px;
+    transition: .2s all;
+    border: 0px;
+    /* width: 200px; */
+    width: 18%;
+    position: absolute;
+    top: 30px;
+    left: 40%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.res_ok_btn:hover{
+    cursor: pointer;
+    margin: 30px 10px;
+    border-radius: 5px;
+    top: 0;
+    transition: .2s all;
+    opacity: .8;
+    position: absolute;
+    top: 30px;
+    left: 40%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.res_ng_btn{
+    margin: 30px 10px;
+    border-radius: 5px;
+    padding: 20px 10px;
+    background-color: #12cc12;
+    color: #ffffff;
+    letter-spacing: 4px;
+    font-size: 16px;
+    top: 20px;
+    transition: .2s all;
+    border: 0px;
+    /* width: 200px; */
+    width: 18%;
+    position: absolute;
+    top: 30px;
+    left: 60%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+}
+
+.res_ng_btn:hover{
+    cursor: pointer;
+    margin: 30px 10px;
+    border-radius: 5px;
+    top: 0;
+    transition: .2s all;
+    opacity: .8;
+    position: absolute;
+    top: 30px;
+    left: 60%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+}
+
+.exit{
+    display: flex;
+    justify-content: center;
+}
+
+.exit_btn{
+    margin: 30px 0px;
+    border-radius: 5px;
+    padding:20px 40px;
+    background-color: #12aa12;
+    color: #ffffff;
+    letter-spacing: 4px;
+    font-size: 20px;
+    top: 20px;
+    transition: .2s all;
+    height: 60px;
+    width: 120px;
+
+    border: 0px;
+}
+
+.exit_btn:hover{
+    cursor: pointer;
+    margin: 30px 0px;
+    border-radius: 5px;
     top: 0;
     transition: .2s all;
     opacity: .8;
@@ -316,7 +502,15 @@ cards list
 
 
 
+/*********************
+result list
+*********************/
 
+
+.result{
+    display: flex;
+    justify-content: center;
+}
 
 
 
@@ -335,4 +529,6 @@ hr{
     display: block;
     clear: both;
 }
+
+
 

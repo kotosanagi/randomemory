@@ -39,7 +39,6 @@
 
   //show training cards
   function show_train_question($card_array){
-    echo '<div class="question_num">Q '.($_SESSION['question_num']+1)."/".$_SESSION['num_train']."<br></div>";
     if($_SESSION['is_front_array'][$_SESSION['question_num']]){ //if it is card front
       echo '<div class="question_card">'.$card_array[$_SESSION['question_array'][$_SESSION['question_num']]-1]['card_front'].'</div>';
     }else{//if it is card back
@@ -51,11 +50,22 @@
     // echo "<br>";
     // var_dump($card_array[$_SESSION['question_array'][$_SESSION['question_num']]-1]['card_id']);
     // echo "<br><br>";
+  }
 
-    //when answer button is pushed
-    if(!empty($_GET['answer'])){
-      echo $card_array[$_SESSION['question_array'][$_SESSION['question_num']]-1]['card_front']." : ";
-      echo $card_array[$_SESSION['question_array'][$_SESSION['question_num']]-1]['card_back']."<br>";
+  //show temporary answer
+  function show_temp_answer($card_array){
+    // echo "it's 'show_temp_answer' function";
+
+    //if is_front is 1 (it means it's front)
+    if($_SESSION['is_front_array'][$_SESSION['question_num']]){ //if it is card front
+      echo '<div class="question_card">'.$card_array[$_SESSION['question_array'][$_SESSION['question_num']]-1]['card_front'].'</div>';
+      echo '<div class="question_card" style="color:#f55">'.$card_array[$_SESSION['question_array'][$_SESSION['question_num']]-1]['card_back']."</div>";
+      // echo 'this card is front';
+    }
+    else{//if is_front is 0 (it means it's back)
+      echo '<div class="question_card">'.$card_array[$_SESSION['question_array'][$_SESSION['question_num']]-1]['card_back']."</div>";
+      echo '<div class="question_card" style="color:#f55" >'.$card_array[$_SESSION['question_array'][$_SESSION['question_num']]-1]['card_front'].'</div>';
+      // echo 'this card is back';
     }
   }
 

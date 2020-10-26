@@ -115,26 +115,40 @@ if(!empty($_GET['exit'])){
 
 <!-- show cards -->
 <?php if($_SESSION['question_num'] < $_SESSION['num_train']): ?>
-  <?php show_train_question($card_array); ?>
+  <?php echo '<div class="question_num">Q '.($_SESSION['question_num']+1)."/".$_SESSION['num_train'].'<br></div>'; ?>
+  <?php if(empty($_GET['answer'])):?>
+    <div class='question_cards clearfix'>
+      <?php show_train_question($card_array); ?>
+    </div>
+  <?php else: ?>
+    <div class='question_cards clearfix'>
+      <?php show_temp_answer($card_array); ?>
+    </div>
+  <?php endif ?>
 <?php endif ?>
 
 
 
+<!-- answer or result button -->
 <?php if(empty($_GET['answer']) && ($_SESSION['question_num'] !== $_SESSION['num_train'])): ?>
-<!-- answer button -->
-<form class="question" method="get">
-  <div class="answer">
-    <input type="submit" name="answer" value="answer">
+  <!-- answer button -->
+  <div class='ans_res_button'>
+  <p>Think of this pair of card...</p>
+    <form class="question" method="get">
+      <input class="ans_btn" type="submit" name="answer" value="answer">
+    </form>
   </div>
-</form>
 <?php elseif(!empty($_GET['answer'])): ?>
-<!-- result button -->
-<form class="question" method="get">
-  <div class="result">
-    <input type="submit" name="result_ok" value="result OK">
-    <input type="submit" name="result_ng" value="result NG">
+  <div class='ans_res_button'>
+    <p>Did you remenber the current card?</p>
+    <!-- result button -->
+    <form class="question" method="get">
+      <div class="result">
+        <input class="res_ok_btn" type="submit" name="result_ok" value="Yes!!">
+        <input class="res_ng_btn" type="submit" name="result_ng" value="No...">
+      </div>
+    </form>
   </div>
-</form>
 <?php endif ?>
 
 <!-- show results -->
@@ -148,11 +162,11 @@ if(!empty($_GET['exit'])){
 <?php //var_dump($_SESSION['final_answer_date']) ?>
 
 <!-- exit button -->
-<form method="get">
-  <div class="exit">
-    <input type="submit" name="exit" value="exit">
-  </div>
-</form>
+<div class="exit">
+  <form method="get">
+    <input class="exit_btn" type="submit" name="exit" value="exit">
+  </form>
+</div>
 
 
 <section>
