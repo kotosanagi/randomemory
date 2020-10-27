@@ -82,34 +82,40 @@
       }
       $mysqli->close();
     }
-    // var_dump($result_array);
-    // echo "<br>";
-    // echo "<br>";
-    // echo "<br>"; 
-    echo "your result is .....";
-    echo "<br>";
+
     $num = 1;
-    foreach($result_array as $value){
-      echo $num." : ";
-      if($value['is_front']==="1"){ // if it is card front
-        echo $value['card_front']." -> ".$value['card_back'];
-        if($value['result']==="1"){ // if the answer is correct
-          echo "   ...   OK";
+    echo '<div class="result_row">';
+
+      echo '<div class="result_no" style="background-color:white">No</div>';
+      echo '<div class="result_question" style="background-color:white">Question</div>';
+      echo '<div class="result_answer" style="background-color:white">Answer</div>';
+      echo '<div class="result_okng" style="background-color:white">result</div>';
+
+      foreach($result_array as $value){
+        if($value['is_front']==="1"){ // if it is card front
+          if($value['result']==="1"){ // if the answer is correct
+            echo '<div class="result_no ok_color">'.$num.'</div>';
+            echo '<div class="result_question ok_color">'.$value['card_front'].'</div><div class="result_answer ok_color">'.$value['card_back'].'</div>';
+            echo '<div class="result_okng ok_color">OK</div>';
+          }else{
+            echo '<div class="result_no ng_color">'.$num.'</div>';
+            echo '<div class="result_question ng_color">'.$value['card_front'].'</div><div class="result_answer ng_color">'.$value['card_back'].'</div>';
+            echo '<div class="result_okng ng_color">NG</div>';
+          }
         }else{
-          echo "   ...   NG";
+          if($value['result']==="1"){ 
+            echo '<div class="result_no ok_color">'.$num.'</div>';
+            echo '<div class="result_question ok_color">'.$value['card_back'].'</div><div class="result_answer ok_color">'.$value['card_front'].'</div>';
+            echo '<div class="result_okng ok_color">OK</div>';
+          }else{
+            echo '<div class="result_no ng_color">'.$num.'</div>';
+            echo '<div class="result_question ng_color">'.$value['card_back'].'</div><div class="result_answer ng_color">'.$value['card_front'].'</div>';
+            echo '<div class="result_okng ng_color">NG</div>';
+          }
         }
-        echo "<br>";
-      }else{
-        echo $value['card_back']." -> ".$value['card_front'];
-        if($value['result']==="1"){ 
-          echo "   ...   OK";
-        }else{
-          echo "   ...   NG";
-        }
-        echo "<br>";
+        $num += 1;
       }
-      $num += 1;
-    }
+    echo '</div>';
     return $result_array;
   }
 ?>

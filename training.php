@@ -48,7 +48,7 @@ if(!empty($_GET['exit'])){
 </head>
 
 <body>
-<h1>randoMemory(training mode)</h1>
+<h1>randoMemory</h1>
 
 <?php
   //set array 
@@ -104,10 +104,10 @@ if(!empty($_GET['exit'])){
 
 <?php
   //when result button is pushed
-  if(!empty($_GET['result_ok'])){
+  if(!empty($_GET['result_ok']) && ($_SESSION['question_num'] < $_SESSION['num_train'])){
     insert_result($card_array[$_SESSION['question_array'][$_SESSION['question_num']]-1]['card_id'],1,$_SESSION['is_front_array'][$_SESSION['question_num']]);
     $_SESSION['question_num'] += 1;
-  }else if(!empty($_GET['result_ng'])){
+  }else if(!empty($_GET['result_ng']) && ($_SESSION['question_num'] < $_SESSION['num_train'])){
     insert_result($card_array[$_SESSION['question_array'][$_SESSION['question_num']]-1]['card_id'],0,$_SESSION['is_front_array'][$_SESSION['question_num']]);
     $_SESSION['question_num'] += 1;
   }
@@ -130,7 +130,7 @@ if(!empty($_GET['exit'])){
 
 
 <!-- answer or result button -->
-<?php if(empty($_GET['answer']) && ($_SESSION['question_num'] !== $_SESSION['num_train'])): ?>
+<?php if(empty($_GET['answer']) && ($_SESSION['question_num'] < $_SESSION['num_train'])): ?>
   <!-- answer button -->
   <div class='ans_res_button'>
   <p>Think of this pair of card...</p>
@@ -153,13 +153,11 @@ if(!empty($_GET['exit'])){
 
 <!-- show results -->
 <?php if($_SESSION['question_num'] === $_SESSION['num_train']): ?>
-  <?php $result_array = show_results(); ?>
+  <p style="text-align:center">your result is .....</p>
+  <div class="show_results clearfix">
+    <?php $result_array = show_results(); ?>
+  </div>
 <?php endif ?>
-
-<?php // echo "<br><br>_SESSION['first_answer_date']<br>" ?>
-<?php //var_dump($_SESSION['first_answer_date']) ?>
-<?php //echo "<br>_SESSION['final_answer_date']<br>" ?>
-<?php //var_dump($_SESSION['final_answer_date']) ?>
 
 <!-- exit button -->
 <div class="exit">

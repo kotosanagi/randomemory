@@ -63,6 +63,7 @@ if(!empty($_POST['btn_submit'])){//register押されたかどうか
     $_SESSION['is_front_array'] = array();
     $_SESSION['first_answer_date'] = "";
     $_SESSION['final_answer_date'] = "";
+    // $_SESSION['finish_train'] = "";
     header("Location: ./training.php?num_train=".$num_train);
   }
 }

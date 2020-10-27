@@ -41,15 +41,9 @@ register cards
 ************************/
 
 .register_cards{
-    /* background-color: white; */
     margin: 10px auto 0px auto;
-    /* padding-bottom: 40px; */
     text-align: center;
-
-
-    /* background-color: lightpink; */
 }
-
 
 textarea{
     height: 100px;
@@ -62,40 +56,23 @@ textarea{
 .fill_in_the_contents{
     margin:10px 20px 30px 20px;
     padding-top: 13px;
-    /* padding-left: 60px; */
-
-    /* background-color: khaki; */
 }
-
 
 .cards_area{
     text-align: center;
-    /* background-color: navajowhite; */
-
     display: flex;
     justify-content: center;
 
 }
 
-/* .input-card_front,
-.input-card_back{
-    margin-bottom: 20px;
-} */
-
 .input-card_front{
-    /* padding-left: 20px; */
     width:400px;
     float:left;
-
-    /* background-color: blue; */
 }
 
 .input-card_back{
-    /* padding-left: 20px; */
     width:400px;
     float:left;
-
-    /* background-color: brown; */
 }
 
 .input-btn_submit{
@@ -108,21 +85,17 @@ textarea{
     font-size: 20px;
     top: 20;
     transition: .2s all;
-
     border: 0px;
 }
 
 .input-btn_submit:hover{
-    background-color: #40b4df;
     cursor: pointer;
     margin: 30px 0px;
     border-radius: 5px;
-    box-shadow: 0 6px #4063A4;
     top: 0;
     transition: .2s all;
     opacity: .8;
 }
-
 
 /***********************
 go to training
@@ -132,12 +105,7 @@ go to training
 }
 
 .num_train{
-    /* float: left; */
-    /* background-color: greenyellow; */
     margin-bottom: 30px;
-    /* display: flex;
-    justify-content: center; */
-
     height: 130px;
     position: relative;
 }
@@ -145,8 +113,6 @@ go to training
 .num_train_times{
     display: inline-block;
     width: 120px;
-    /* background-color: indigo; */
-
     position: absolute;
     top :0px;
     left: 51%;
@@ -156,7 +122,6 @@ go to training
 }
 
 .num_train_text{
-    /* background-color: grey; */
     float: left;
     border-radius: 5px;
     height: 40px;
@@ -165,7 +130,6 @@ go to training
 }
 
 .times{
-    /* background-color: hotpink; */
     margin-left: 5px;
     margin-top: 20px;
     float: left;
@@ -181,10 +145,8 @@ go to training
     font-size: 20px;
     top: 20;
     transition: .2s all;
-
     border: 0px;
     width: 200px;
-
     position: absolute;
     top: 30px;
     left: 50%;
@@ -194,15 +156,11 @@ go to training
 }
 
 .go_to_training_btn:hover{
-    /* background-color: #40b4df;
-    cursor: pointer;*/
     margin: 30px 0px;
     border-radius: 5px;
-    /* box-shadow: 0 6px #4063A4; */
     top: 0;
     transition: .2s all;
     opacity: .8;
-
     position: absolute;
     top: 30px;
     left: 50%;
@@ -210,8 +168,6 @@ go to training
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
 }
-
-
 
 /***********************
 cards list
@@ -221,11 +177,9 @@ cards list
     text-align: center;
     font-weight: bold;
     color: #666;
-    /* background-color: cornflowerblue; */
 }
 
 .card_view{
-    /* background-color: #eef; */
     margin: 30px 90px;
     padding : 2px 0px 0px 0px;
     height: 60px;
@@ -241,11 +195,7 @@ cards list
     width: 180px;
     border-radius: 5px;
     border: 1px #ddd solid;
-    /* vertical-align: middle; */
-
-    /* background-color: mediumblue; */
     background-color: white;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -258,26 +208,21 @@ cards list
     width: 180px;
     border-radius: 5px;
     border: 1px #ddd solid;
-    /* vertical-align: middle; */
-
-    /* background-color: lightseagreen; */
     background-color: white;
-
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
-
 .card_i{
-    /* background-color: lime; */
     color: #777;
-
     margin-top: 10px;
     margin-right: 5px;
     float: left;
 }
+
+
+
 
 /************************************
 *************************************
@@ -286,49 +231,34 @@ cards list
 *************************************/
 
 
-
-
-
 /************************************
 cards 
 *************************************/
 .question_num{
-    /* color: red; */
-    /* background-color: steelblue; */
     text-align: center;
     margin-top: 30px;
 }
 
 .question_cards{
     height: 120px;
-    /* background-color: tan; */
-    
     display: flex;
     justify-content: center;
-
     margin: 10px auto 30px auto;
 }
 
 .question_card{
-    /* background-color: springgreen; */
     background-color: white;
-    /* color: blue; */
-
     height: 60px;
     width: 180px;
     border-radius: 5px;
     border: 1px #ddd solid;
-
     margin: 15px 15px 5px 15px;
     float: left;
-
     height: 80px;
     width: 200px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 /************************************
@@ -336,12 +266,9 @@ buttons
 *************************************/
 
 .ans_res_button{
-    /* background-color: teal; */
     height: 300px;
-
     display: flex;
     justify-content: center;
-
     position: relative;
 }
 
@@ -363,7 +290,6 @@ buttons
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -382,12 +308,15 @@ buttons
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
-
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.result{
+    display: flex;
+    justify-content: center;
+}
 
 .res_ok_btn{
     margin: 30px 10px;
@@ -400,7 +329,6 @@ buttons
     top: 20px;
     transition: .2s all;
     border: 0px;
-    /* width: 200px; */
     width: 18%;
     position: absolute;
     top: 30px;
@@ -408,7 +336,6 @@ buttons
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -427,7 +354,6 @@ buttons
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -445,7 +371,6 @@ buttons
     top: 20px;
     transition: .2s all;
     border: 0px;
-    /* width: 200px; */
     width: 18%;
     position: absolute;
     top: 30px;
@@ -487,7 +412,6 @@ buttons
     transition: .2s all;
     height: 60px;
     width: 120px;
-
     border: 0px;
 }
 
@@ -500,35 +424,82 @@ buttons
     opacity: .8;
 }
 
-
-
 /*********************
 result list
 *********************/
 
-
-.result{
-    display: flex;
-    justify-content: center;
+.show_results{
+    width: 548px;
+    border: 1px solid #888;
+    margin: 0 auto;
 }
 
+.result_row{
+    height: 62px;
+}
 
+.result_no{
+    height: 60px;
+    width: 50px;
+    float: left;
+    border: 1px solid #888;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result_question{
+    height: 60px;
+    width: 220px;
+    float: left;
+    border: 1px solid #888;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result_answer{
+    height: 60px;
+    width: 220px;
+    float: left;
+    border: 1px solid #888;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result_okng{
+    height: 60px;
+    width: 50px;
+    float: left;
+    border: 1px solid #888;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ok_color{
+    background-color: #ffe9e9;
+}
+
+.ng_color{
+    background-color: #e9e9ff;
+}
 
 /*********************
 others
 *********************/
 
-
 hr{
     margin: 0px 30px 50px 30px;
 }
-
 
 .clearfix::after{
     content:"";
     display: block;
     clear: both;
 }
-
-
-
