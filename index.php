@@ -52,7 +52,6 @@ if(!empty($_POST['btn_submit'])){//register押されたかどうか
       $sql = "INSERT INTO cards(card_front,card_back) VALUES('$clean[card_front]','$clean[card_back]')";
       $res = $mysqli->query($sql);
 
-
       echo 'send data from db';
       echo "<br>";
       echo 'var_dump(res) : ';
@@ -88,10 +87,9 @@ $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 if($mysqli->connect_errno){
   $error_message[] = "error! ".$mysqli->connect_errno. " : ".$mysqli->connect_error;
 }else{
-  $sql = "SELECT card_front,card_back FROM cards order by card_id asc";
+  // $sql = "SELECT card_front,card_back FROM cards order by card_id asc";
+  $sql = "SELECT * FROM cards";
   $res = $mysqli->query($sql);
-
-  echo mysqli_report(MYSQLI_REPORT_ERROR);
 
   echo 'recieve data from db';
   echo "<br>";
