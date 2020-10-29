@@ -14,7 +14,7 @@
   define("DB_HOST",$url["host"]);
   define("DB_USER",$url["user"]);
   define("DB_PASS",$url["pass"]);
-  define("DB_NAME",$url["path"]);
+  define("DB_NAME",substr($url["path"]),1);
 
   //when you select results, insert result to mysql
   function insert_result($result_card_id,$result,$is_front){
