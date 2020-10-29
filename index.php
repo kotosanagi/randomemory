@@ -87,8 +87,8 @@ $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 if($mysqli->connect_errno){
   $error_message[] = "error! ".$mysqli->connect_errno. " : ".$mysqli->connect_error;
 }else{
-  // $sql = "SELECT card_front,card_back FROM cards order by card_id asc";
-  $sql = "SELECT * FROM cards";
+  $sql = "SELECT card_front,card_back FROM cards order by card_id asc";
+  // $sql = "SELECT * FROM cards";
   $res = $mysqli->query($sql);
 
   echo 'recieve data from db';
