@@ -56,7 +56,6 @@ if(!empty($_POST['btn_submit'])){//register押されたかどうか
       echo 'send data from db';
       echo "<br>";
       echo 'var_dump(res) : ';
-      echo "<br>";
       var_dump($res);
       echo "<br>";
     
@@ -92,10 +91,11 @@ if($mysqli->connect_errno){
   $sql = "SELECT card_front,card_back FROM cards order by card_id asc";
   $res = $mysqli->query($sql);
 
+  mysqli_report(MYSQLI_REPORT_ERROR);
+  
   echo 'recieve data from db';
   echo "<br>";
   echo 'var_dump(res) : ';
-  echo "<br>";
   var_dump($res);
   echo "<br>";
 
@@ -104,7 +104,6 @@ if($mysqli->connect_errno){
   }
 
   echo 'var_dump(card_array) : ';
-  echo "<br>";
   var_dump($card_array);
   echo "<br>";
 
