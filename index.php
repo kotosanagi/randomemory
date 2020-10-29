@@ -85,9 +85,15 @@ if($mysqli->connect_errno){
   $sql = "SELECT card_front,card_back FROM cards order by card_id asc";
   $res = $mysqli->query($sql);
 
+  echo 'var_dump(res) : ';
+  var_dump($res);
+
   if($res){
     $card_array = $res->fetch_all(MYSQLI_ASSOC);
   }
+
+  echo 'var_dump(card_array) : ';
+  var_dump($card_array)
 
   $mysqli->close();
 }
