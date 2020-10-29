@@ -52,6 +52,10 @@ if(!empty($_POST['btn_submit'])){//register押されたかどうか
       $sql = "INSERT INTO cards(card_front,card_back) VALUES('$clean[card_front]','$clean[card_back]')";
       $res = $mysqli->query($sql);
 
+
+      echo 'send data from db'.'\n';
+      echo 'var_dump(res) : '.'\n';
+      var_dump($res);
     
       if($res) {
         $_SESSION['success_message'] = 'new card is registred!!';
@@ -60,7 +64,7 @@ if(!empty($_POST['btn_submit'])){//register押されたかどうか
       }
       $mysqli->close();
     }
-    header("Location: ./");
+    // header("Location: ./"); //////////////////////////////////
   }
 }elseif(!empty($_GET['go_to_training_btn'])){//go to training押されたかどうか
   $num_train = (int)$_GET['num_train'];
@@ -85,14 +89,15 @@ if($mysqli->connect_errno){
   $sql = "SELECT card_front,card_back FROM cards order by card_id asc";
   $res = $mysqli->query($sql);
 
-  echo 'var_dump(res) : ';
+  echo 'recieve data from db'.'\n';
+  echo 'var_dump(res) : '.'\n';
   var_dump($res);
 
   if($res){
     $card_array = $res->fetch_all(MYSQLI_ASSOC);
   }
 
-  echo 'var_dump(card_array) : ';
+  echo 'var_dump(card_array) : '.'\n';
   var_dump($card_array);
 
   $mysqli->close();
