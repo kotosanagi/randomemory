@@ -1,12 +1,20 @@
 <?php
 
+/*  It's for local environment
   require_once("define.php");
   //db接続情報の定義
   define("DB_HOST",$define["host"]);
   define("DB_USER",$define["user"]);
   define("DB_PASS",$define["pass"]);
   define("DB_NAME",$define["name"]);
+*/
 
+// It's for deploy environment
+  $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+  define("DB_HOST",$url["host"]);
+  define("DB_USER",$url["user"]);
+  define("DB_PASS",$url["pass"]);
+  define("DB_NAME",$url["path"]);
 
   //when you select results, insert result to mysql
   function insert_result($result_card_id,$result,$is_front){
