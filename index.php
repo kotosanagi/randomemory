@@ -53,8 +53,8 @@ if(!empty($_POST['btn_submit'])){//register押されたかどうか
       $res = $mysqli->query($sql);
 
 
-      echo 'send data from db'.'\n';
-      echo 'var_dump(res) : '.'\n';
+      echo 'send data from db'."\n";
+      echo 'var_dump(res) : '."\n";
       var_dump($res);
     
       if($res) {
@@ -89,8 +89,8 @@ if($mysqli->connect_errno){
   $sql = "SELECT card_front,card_back FROM cards order by card_id asc";
   $res = $mysqli->query($sql);
 
-  echo 'recieve data from db'.'\n';
-  echo 'var_dump(res) : '.'\n';
+  echo 'recieve data from db'."\n";
+  echo 'var_dump(res) : '."\n";
   var_dump($res);
 
   if($res){
