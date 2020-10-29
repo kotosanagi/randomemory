@@ -19,6 +19,7 @@ if(!empty($_GET['num_train'])){
 
 //dbからデータを受け取る
 $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+$mysqli->set_charset('utf8');/////////////////////////////////////
 
 if($mysqli->connect_errno){
   $error_message[] = "error! ".$mysqli->connect_errno. " : ".$mysqli->connect_error;
@@ -60,37 +61,7 @@ if(!empty($_GET['exit'])){
     $_SESSION['question_array'] = $question_array;
     $_SESSION['is_front_array'] = $is_front_array;
   }
-
-
-  
-  // echo "card_array<br>";
-  // foreach($card_array as $value){
-  //   var_dump($value);
-  //   echo "<br>";
-  // }
 ?>
-
-<!-- <br>
-<?php //echo "_SESSION['question_array']"."<br>"; ?>
-<?php //var_dump($_SESSION['question_ppparray']) ?>
-<br>
-<br>
-<?php //echo "_SESSION['is_front_array']"."<br>"; ?>
-<?php //var_dump($_SESSION['is_front_array']) ?>
-<br>
-<br>
-<?php //echo "_SESSION['num_train']"."<br>"; ?>
-<?php //var_dump($_SESSION['num_train']) ?>
-<br>
-<br> -->
-
-<!-- success_messageのチェック(掲示板の名残) -->
-<!-- <?php //if(empty($_POST['btn_submit']) && !empty($_SESSION['success_message'])): ?>
-  <ul class="success_message">
-    <li>・<?php //echo $_SESSION['success_message'];?></li>
-    <?php //unset($_SESSION['success_message']) ?>
-  </ul>
-<?php //endif ?> -->
 
 <!-- $error_messageのチェック -->
 <?php if(!empty($error_message)): ?>
@@ -100,7 +71,6 @@ if(!empty($_GET['exit'])){
     <?php endforeach ?>
   </ul>
 <?php endif ?>
-
 
 <?php
   //when result button is pushed
@@ -126,8 +96,6 @@ if(!empty($_GET['exit'])){
     </div>
   <?php endif ?>
 <?php endif ?>
-
-
 
 <!-- answer or result button -->
 <?php if(empty($_GET['answer']) && ($_SESSION['question_num'] < $_SESSION['num_train'])): ?>
@@ -165,7 +133,6 @@ if(!empty($_GET['exit'])){
     <input class="exit_btn" type="submit" name="exit" value="exit">
   </form>
 </div>
-
 
 <section>
 <article>

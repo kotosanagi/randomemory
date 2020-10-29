@@ -1,14 +1,5 @@
 <?php
 
-/*  It's for local environment
-require_once("define.php");
-//db接続情報の定義
-define("DB_HOST",$define["host"]);
-define("DB_USER",$define["user"]);
-define("DB_PASS",$define["pass"]);
-define("DB_NAME",$define["name"]);
-*/
-
 // It's for deploy environment
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 define("DB_HOST",$url["host"]);
@@ -40,7 +31,6 @@ if(!empty($_POST['btn_submit'])){//register押されたかどうか
     $clean['card_back'] = htmlspecialchars($_POST['card_back'],ENT_QUOTES);
   }
 
-
   if(empty($error_message)) {
     $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
     $mysqli->set_charset('utf8');////////////////////////////////////
@@ -53,12 +43,12 @@ if(!empty($_POST['btn_submit'])){//register押されたかどうか
       $sql = "INSERT INTO cards(card_front,card_back) VALUES('$clean[card_front]','$clean[card_back]')";
       $res = $mysqli->query($sql);
 
-      echo 'send data from db';
-      echo "<br>";
-      echo 'var_dump(res) : ';
-      var_dump($res);
-      echo "<br>";
-    
+      // echo 'send data from db';
+      // echo "<br>";
+      // echo 'var_dump(res) : ';
+      // var_dump($res);
+      // echo "<br>";
+
       if($res) {
         $_SESSION['success_message'] = 'new card is registred!!';
       }else{
@@ -93,11 +83,11 @@ if($mysqli->connect_errno){
   // $sql = "SELECT * FROM cards";
   $res = $mysqli->query($sql);
 
-  echo 'recieve data from db';
-  echo "<br>";
-  echo 'var_dump(res) : ';
-  var_dump($res);
-  echo "<br>";
+  // echo 'recieve data from db';
+  // echo "<br>";
+  // echo 'var_dump(res) : ';
+  // var_dump($res);
+  // echo "<br>";
 
   if($res){
     $card_array = $res->fetch_all(MYSQLI_ASSOC);
