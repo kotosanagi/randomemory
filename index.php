@@ -93,7 +93,7 @@ if($mysqli->connect_errno){
   }
 
   echo 'var_dump(card_array) : ';
-  var_dump($card_array)
+  var_dump($card_array);
 
   $mysqli->close();
 }
