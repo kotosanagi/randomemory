@@ -53,9 +53,12 @@ if(!empty($_POST['btn_submit'])){//register押されたかどうか
       $res = $mysqli->query($sql);
 
 
-      echo 'send data from db'."\n";
-      echo 'var_dump(res) : '."\n";
+      echo 'send data from db';
+      echo "<br>";
+      echo 'var_dump(res) : ';
+      echo "<br>";
       var_dump($res);
+      echo "<br>";
     
       if($res) {
         $_SESSION['success_message'] = 'new card is registred!!';
@@ -89,16 +92,21 @@ if($mysqli->connect_errno){
   $sql = "SELECT card_front,card_back FROM cards order by card_id asc";
   $res = $mysqli->query($sql);
 
-  echo 'recieve data from db'."\n";
-  echo 'var_dump(res) : '."\n";
+  echo 'recieve data from db';
+  echo "<br>";
+  echo 'var_dump(res) : ';
+  echo "<br>";
   var_dump($res);
+  echo "<br>";
 
   if($res){
     $card_array = $res->fetch_all(MYSQLI_ASSOC);
   }
 
-  echo 'var_dump(card_array) : '.'\n';
+  echo 'var_dump(card_array) : ';
+  echo "<br>";
   var_dump($card_array);
+  echo "<br>";
 
   $mysqli->close();
 }
