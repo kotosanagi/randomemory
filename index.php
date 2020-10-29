@@ -43,6 +43,7 @@ if(!empty($_POST['btn_submit'])){//register押されたかどうか
 
   if(empty($error_message)) {
     $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+    $mysqli->set_charset('utf8');////////////////////////////////////
 
     if($mysqli->connect_errno){
       $error_message[] = "error! ".$mysqli->connect_errno. " : ".$mysqli->connect_error;
@@ -65,7 +66,7 @@ if(!empty($_POST['btn_submit'])){//register押されたかどうか
       }
       $mysqli->close();
     }
-    // header("Location: ./"); //////////////////////////////////
+    header("Location: ./"); //////////////////////////////////
   }
 }elseif(!empty($_GET['go_to_training_btn'])){//go to training押されたかどうか
   $num_train = (int)$_GET['num_train'];
@@ -83,6 +84,7 @@ if(!empty($_POST['btn_submit'])){//register押されたかどうか
 
 //dbからデータを受け取る
 $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+$mysqli->set_charset('utf8');/////////////////////////////////////
 
 if($mysqli->connect_errno){
   $error_message[] = "error! ".$mysqli->connect_errno. " : ".$mysqli->connect_error;
