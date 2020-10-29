@@ -93,9 +93,9 @@ if($mysqli->connect_errno){
     $card_array = $res->fetch_all(MYSQLI_ASSOC);
   }
 
-  echo 'var_dump(card_array) : ';
-  var_dump($card_array);
-  echo "<br>";
+  // echo 'var_dump(card_array) : ';
+  // var_dump($card_array);
+  // echo "<br>";
 
   $mysqli->close();
 }
