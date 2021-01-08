@@ -1,4 +1,4 @@
-# randomemory
+# randoMemory
 
 This web application is a service that encourages memorization learning.  
 Register the card you want to remember in advance.  
