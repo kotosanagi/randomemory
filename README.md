@@ -2,7 +2,7 @@
 
 
 [![demo](https://raw.githubusercontent.com/wiki/kotosanagi/randomemory/top.png)](https://randomemory-app.herokuapp.com/)  
-https://randomemory-app.herokuapp.com/]
+https://randomemory-app.herokuapp.com/
 
 
 このアプリは、ただの暗記カードアプリではありません。
